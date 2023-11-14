@@ -8,11 +8,11 @@ class CustomBookImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: AspectRatio(
-        aspectRatio: 0.75, //width to height
+        aspectRatio: 0.70, //width to height
         child: Container(
           margin: const EdgeInsets.only(
-            right: 8,
-            left: 8,
+            right: 5,
+            left: 5,
           ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),

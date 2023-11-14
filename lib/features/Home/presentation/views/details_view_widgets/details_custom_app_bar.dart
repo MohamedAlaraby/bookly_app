@@ -9,7 +9,6 @@ class DetailsCustomAppBar extends StatelessWidget {
     return Row(
       children: [
         IconButton(
- 
           onPressed: () {},
           icon: const Icon(Icons.close),
         ),
