@@ -35,7 +35,26 @@ class HomeRepoImp extends HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() {
-    throw UnimplementedError();
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async{
+      try {
+      Map<String, dynamic> result = await apiService.get(
+        endPoint: kgetFeaturedBookEndPoint,
+      );
+
+      List<BookModel> books = [];
+
+      for (var book in result["items"]) {
+        books.add(BookModel.fromJson(book));
+      }
+
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(dioException: e));
+      }
+
+      //May be the exception here is something related to your parsing or somthing in the code.
+      return left(ServerFailure(errMessage: "errMessage is ${e.toString()}"));
+    }
   }
 }

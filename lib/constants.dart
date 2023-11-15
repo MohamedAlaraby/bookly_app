@@ -8,6 +8,8 @@ const kSearchViewName = "/search_view";
 const kPaddingH30 = EdgeInsets.symmetric(horizontal: 30);
 const kgetNewestBookEndPoint =
     "volumes?Filtering=free-ebooks&Sorting=newest&q=subject:programming";
+const kgetFeaturedBookEndPoint =
+    "volumes?Filtering=free-ebooks&q=subject:programming";
 const kTransitionDuration = Duration(
   seconds: 1,
 );
