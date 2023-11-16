@@ -1,3 +1,4 @@
+import 'package:bookly_app/bloc_observer.dart';
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/go_router.dart';
 import 'package:bookly_app/core/utils/service_locator.dart';
@@ -10,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   setupServiceLocator();
+  Bloc.observer = MyBlocObserver();
   runApp(const BooklyApp());
 }
 
@@ -20,18 +22,23 @@ class BooklyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => FeaturedBooksCubit(getIt<HomeRepoImp>()),
+          create: (context) => FeaturedBooksCubit(
+            getIt<HomeRepoImp>(),
+          )..fetchFeaturedBooks(),
         ),
         BlocProvider(
-          create: (context) => NewestBooksCubit(getIt<HomeRepoImp>()),
+          create: (context) => NewestBooksCubit(
+            getIt<HomeRepoImp>(),
+          )..fetchNewestBooks(),
         ),
       ],
       child: MaterialApp.router(
         routerConfig: router,
         theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: kPrimaryColor,
-          textTheme:
-              GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
+          textTheme: GoogleFonts.montserratTextTheme(
+            ThemeData.dark().textTheme,
+          ),
         ),
         debugShowCheckedModeBanner: false,
       ),

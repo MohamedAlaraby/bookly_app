@@ -30,7 +30,7 @@ class HomeRepoImp extends HomeRepo {
       }
 
       //May be the exception here is something related to your parsing or somthing in the code.
-      return left(ServerFailure(errMessage: "errMessage is ${e.toString()}"));
+      return left(ServerFailure(errMessage: "Error message is ${e.toString()}"));
     }
   }
 
