@@ -1,5 +1,7 @@
+import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class DetailsCustomAppBar extends StatelessWidget {
   const DetailsCustomAppBar({super.key});
@@ -9,7 +11,9 @@ class DetailsCustomAppBar extends StatelessWidget {
     return Row(
       children: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            GoRouter.of(context).pop();
+          },
           icon: const Icon(Icons.close),
         ),
         const Spacer(),

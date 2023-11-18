@@ -27,7 +27,7 @@ class SearchViewBody extends StatelessWidget {
             style: MyStyles.textStyle18,
           ),
         ),
-        SearchResultListView(),
+         SearchResultListView(),
       ],
     );
   }

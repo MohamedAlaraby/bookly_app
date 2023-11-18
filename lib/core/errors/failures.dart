@@ -13,19 +13,19 @@ class ServerFailure extends Failure {
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
         return ServerFailure(
-          errMessage: dioException.message!,
+          errMessage: DioExceptionType.connectionTimeout.name,
         );
       case DioExceptionType.sendTimeout:
         return ServerFailure(
-          errMessage: dioException.message!,
+          errMessage: DioExceptionType.sendTimeout.name,
         );
       case DioExceptionType.receiveTimeout:
         return ServerFailure(
-          errMessage: dioException.message!,
+          errMessage: DioExceptionType.receiveTimeout.name,
         );
       case DioExceptionType.badCertificate:
         return ServerFailure(
-          errMessage: dioException.message!,
+          errMessage: DioExceptionType.badCertificate.name,
         );
       case DioExceptionType.badResponse:
         return ServerFailure.fromBadResponse(
@@ -34,11 +34,11 @@ class ServerFailure extends Failure {
         );
       case DioExceptionType.cancel:
         return ServerFailure(
-          errMessage: dioException.message!,
+          errMessage: DioExceptionType.cancel.name,
         );
       case DioExceptionType.connectionError:
         return ServerFailure(
-          errMessage: dioException.message!,
+          errMessage: DioExceptionType.connectionError.name,
         );
       case DioExceptionType.unknown:
         return ServerFailure(

@@ -8,14 +8,16 @@ class CustomFailureWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 30,
-        vertical: 16,
-      ),
-      child: Text(
-        errMessage,
-        style: MyStyles.textStyle18,
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 30,
+          vertical: 16,
+        ),
+        child: Text(
+          errMessage,
+          style: MyStyles.textStyle18,
+        ),
       ),
     );
   }

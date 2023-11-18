@@ -1,5 +1,7 @@
 import 'package:bookly_app/core/utils/my_styles.dart';
-import 'package:bookly_app/features/Home/presentation/views/home_view_widgets/best_seller_listview.dart';
+import 'package:bookly_app/core/widgets/shimmer_list_item.dart';
+
+import 'package:bookly_app/features/Home/presentation/views/home_view_widgets/newest_books_listview.dart';
 import 'package:bookly_app/features/Home/presentation/views/home_view_widgets/home_custom_app_bar.dart';
 import 'package:bookly_app/features/Home/presentation/views/home_view_widgets/featured_books_listview.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +28,7 @@ class HomeViewBody extends StatelessWidget {
                   left: 30,
                 ),
                 child: Text(
-                  "Best Seller",
+                  "Newest Books",
                   style: MyStyles.textStyle18,
                 ),
               ),
@@ -34,9 +36,9 @@ class HomeViewBody extends StatelessWidget {
             ],
           ),
         ),
-        SliverFillRemaining(
-          //Expanded
-          child: BestSellerListView(),
+       
+        SliverToBoxAdapter(
+          child: NewestBooksListView(),
         ),
       ],
     );
